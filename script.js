@@ -160,6 +160,7 @@ const contacts = [
                 message: 'OK!!',
                 status: 'received'
             }
+
         ],
     }
 ]
@@ -170,8 +171,12 @@ const app = new Vue (
         el: '#root',
         data: { 
             contacts,
+            activeContact: null,
         },
         methods: {
+            setActive: function(i){
+                this.activeContact = i;
+            }
 
         }
     }

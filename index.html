@@ -12,52 +12,101 @@
 </head>
 <body>
 <div id="root">
-<div class="container">
-    <div class="flex-sx col-4">
-        <div class="flex-column">
-            <div class="account">
-                <img src="img-bolzapp/avatar_io.jpg" alt="" >
-                <strong>Emanuela</strong>
-            </div>
-            <div class="notifiche flex-sx">
-                <i class="fa-solid fa-bell-slash"></i>
-                <span><strong>Ricevi notifiche di nuovi messaggi</strong></span>
-                <a href="#">Attiva notifiche desktop</a>
-            </div>
-            <div class="input">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-
-                <input type="text" placeholder= "Cerca o inizia una nuova chat" >
-            </div>
-            <div class="contact ">
-                <ul>
-                    <li class="list" v-for="(items, index) in contacts"> 
-                        <div>
-                            <img :src="'img-bolzapp/avatar' + items.avatar + '.jpg'" alt="">
-                            <strong>{{items.name}}</strong>
-                            <span>Ultimo messaggio inviato</span>
-                            
-                            <p>12.00</p>
+    <div class="max-container">
+        <div class="container">
+            <div class="flex col-4">
+                <div class="flex-column">
+                    <div class="account flex">
+                        <div class="col-9">
+                            <img src="img-bolzapp/avatar_io.jpg" alt="" >
+                            <strong>Emanuela</strong>
                         </div>
-                            
-                      
-                    </li>
-                </ul>
+                        <div class="col-3 icon-sx">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class="notifiche flex">
+                        <i class="fa-solid fa-bell-slash"></i>
+                        <span><strong>Ricevi notifiche di nuovi messaggi</strong></span>
+                        <a href="#">Attiva notifiche desktop</a>
+                    </div>
+                    <div class="input-top">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+
+                        <input type="text" placeholder= "Cerca o inizia una nuova chat" >
+                    </div>
+                    <div class="contact">
+                            <div class="list" v-for="(items, index) in contacts" @click= "setActive(index)"> 
+                                <div class="flex" >
+                                    <img class="col-1" :src="'img-bolzapp/avatar' + items.avatar + '.jpg'" alt="">
+                                    <div class="col-10 ">
+                                        <strong>{{items.name}}</strong>
+                                        <div v-if="contacts[index].messages[2]">
+                                            <p>{{contacts[index].messages[2].message}}</p>
+                                        </div>
+                                        <div v-else="contacts[index].messages[1]">
+                                            <p>{{contacts[index].messages[1].message}}</p>
+                                        </div>
+                                    
+                                    </div>
+                                    <p class="col-1">{{contacts[index].messages[1].date}}</p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="flex-dx col-8 bg-image" >
+                
+                <div class="flex-column" v-if="activeContact !== null">
+
+                    <!--header dx-->
+                    <div class="header"  >
+                        <img class="col-1" :src="'img-bolzapp/avatar' + contacts[activeContact].avatar + '.jpg'" alt="">
+                        <div class="col-8">
+                            <h3>{{contacts[activeContact].name}} </h3>
+                            <p>{{contacts[activeContact].messages[0].date}}</p>
+                        </div>
+                        <div class="col-3 icon-dx">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                
+                    </div>
+                    <!--body dx-->
+                    <div class="body-dx">
+
+                    </div>
+
+                    <!--footer dx-->
+                    <div class="footer-dx">
+                        <div class="input flex">
+                            <button class="col-2"><i class="fa-solid fa-face-smile"></i></button>
+            
+                            <input class="col-8" type="text" placeholder= "Scrivi un messaggio" >
+                            <button class="col-2"><i class="fa-solid fa-microphone"></i></button>
+                    </div>
+                    
+                </div>
+                    
+                <div class="notSelected" v-else="">
+                    <h3>Seleziona una chat</h3>
+                </div>
+                
+            
+            
+
+
+                <!--body dx-->
                 
             </div>
+            </div>
         </div>
-
-    </div>
-    <div class="flex-dx col-8 bg-image">
-
     </div>
 </div>
-
-
-
-
-</div>
-
     <script src="script.js"></script>
 </body>
 </html>
