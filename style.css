@@ -9,4 +9,72 @@
   margin: 5px auto;
   height: 98vh;
   border: 1px solid red;
+  display: flex;
+}
+
+.flex-sx {
+  display: flex;
+  border: 1px solid blue;
+}
+
+.flex-dx {
+  border: 1px solid green;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.account {
+  width: 50vh;
+  height: 60px;
+  border: 1px solid green;
+}
+
+.notifiche {
+  width: 50vh;
+  height: 100px;
+  border: 1px solid green;
+}
+
+.input {
+  width: 50vh;
+  height: 50px;
+  border: 1px solid green;
+}
+
+.contact {
+  width: 50vh;
+  height: 705px;
+  border: 1px solid green;
+}
+
+.list {
+  list-style-type: none;
+  padding: 20px;
+  border: 1px solid grey;
+}
+
+.bg-image {
+  background-image: url(img-bolzapp/mine.jpg);
+}
+
+.account img {
+  margin: 5px;
+  height: 50px;
+  line-height: 60px;
+  vertical-align: middle;
+}
+
+.notifiche {
+  background-color: #8edafc;
+  align-items: center;
+}
+
+.notifiche i {
+  background-color: white;
+  font-size: 35px;
+  margin: 16px;
+  padding: 13px;
+  border-radius: 50%;
 }

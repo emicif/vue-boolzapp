@@ -5,17 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="framework.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Boolzapp - a (not very) innovative messaging platform</title>
 </head>
 <body>
 <div id="root">
 <div class="container">
-    <div class="flex-sx">
+    <div class="flex-sx col-4">
+        <div class="flex-column">
+            <div class="account">
+                <img src="img-bolzapp/avatar_io.jpg" alt="" >
+                Emanuela
+            </div>
+            <div class="notifiche flex-sx">
+                <i class="fa-solid fa-bell-slash"></i>
+                <span><strong>Ricevi notifiche di nuovi messaggi</strong></span>
+                <a href="#">Attiva notifiche desktop</a>
+            </div>
+            <div class="input">
+                <input type="text">
+            </div>
+            <div class="contact ">
+                <ul>
+                    <li class="list" v-for="(items, index) in contacts"> 
+                        <div>
+                            {{items.avatar}}
+                            {{items.name}}
+                            
+                            <p>Ultimo messaggio inviato</p>
+                            <p>12.00</p>
+                        </div>
+                            
+                      
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
 
     </div>
-    <div class="flex-dx">
-        
+    <div class="flex-dx col-8 bg-image">
+
     </div>
 </div>
 
