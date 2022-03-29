@@ -176,6 +176,13 @@ const app = new Vue (
         methods: {
             setActive: function(i){
                 this.activeContact = i;
+            },
+            colorMessage: function(i){
+                if(this.contacts[this.activeContact].messages[1].status === 'sent') {
+                    return 'bg-green';
+                } else {
+                    return 'bg-white';
+                }
             }
 
         }

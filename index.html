@@ -18,7 +18,7 @@
                 <div class="flex-column">
                     <div class="account flex">
                         <div class="col-9">
-                            <img src="img-bolzapp/avatar_io.jpg" alt="" >
+                            <img src="img-bolzapp/avatar_io.jpg" alt="Emanuela" >
                             <strong>Emanuela</strong>
                         </div>
                         <div class="col-3 icon-sx">
@@ -29,8 +29,11 @@
                     </div>
                     <div class="notifiche flex">
                         <i class="fa-solid fa-bell-slash"></i>
-                        <span><strong>Ricevi notifiche di nuovi messaggi</strong></span>
-                        <a href="#">Attiva notifiche desktop</a>
+                        <div class="link-a">
+                            <p><strong>Ricevi notifiche di nuovi messaggi</strong></p>
+                            <a href="#"><strong>Attiva notifiche desktop</strong></a>
+                        </div>
+                        
                     </div>
                     <div class="input-top">
                         <button><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -40,18 +43,27 @@
                     <div class="contact">
                             <div class="list" v-for="(items, index) in contacts" @click= "setActive(index)"> 
                                 <div class="flex" >
-                                    <img class="col-1" :src="'img-bolzapp/avatar' + items.avatar + '.jpg'" alt="">
-                                    <div class="col-10 ">
+                                    <img class="col-1" :src="'img-bolzapp/avatar' + items.avatar + '.jpg'" alt="{{contacts[activeContact].name}}">
+                                    <div class="col-10 name-message">
                                         <strong>{{items.name}}</strong>
                                         <div v-if="contacts[index].messages[2]">
-                                            <p>{{contacts[index].messages[2].message}}</p>
+                                            <p class="message">{{contacts[index].messages[2].message}}</p>
                                         </div>
                                         <div v-else="contacts[index].messages[1]">
-                                            <p>{{contacts[index].messages[1].message}}</p>
+                                            <p class="message">{{contacts[index].messages[1].message}}</p>
                                         </div>
-                                    
                                     </div>
-                                    <p class="col-1">{{contacts[index].messages[1].date}}</p>
+
+                                    <div class="col-1 message">
+                                        <div v-if="contacts[index].messages[2]">
+                                            <p>{{contacts[index].messages[2].date}}</p>
+                                        </div>
+                                        <div v-else="contacts[index].messages[1]">
+                                            <p>{{contacts[index].messages[1].date}}</p>
+                                        </div>
+                                     
+                                    </div>
+                                    
                                 </div>
                             </div>
                     </div>
@@ -64,8 +76,8 @@
 
                     <!--header dx-->
                     <div class="header"  >
-                        <img class="col-1" :src="'img-bolzapp/avatar' + contacts[activeContact].avatar + '.jpg'" alt="">
-                        <div class="col-8">
+                        <img class="col-1" :src="'img-bolzapp/avatar' + contacts[activeContact].avatar + '.jpg'" alt="{{contacts[activeContact].name}}">
+                        <div class="col-8 align-self-center">
                             <h3>{{contacts[activeContact].name}} </h3>
                             <p>{{contacts[activeContact].messages[0].date}}</p>
                         </div>
@@ -78,7 +90,8 @@
                     </div>
                     <!--body dx-->
                     <div class="body-dx">
-
+                        <p :class="colorMessage()">{{contacts[activeContact].messages[0].message}}</p>
+                        
                     </div>
 
                     <!--footer dx-->
@@ -88,25 +101,22 @@
             
                             <input class="col-8" type="text" placeholder= "Scrivi un messaggio" >
                             <button class="col-2"><i class="fa-solid fa-microphone"></i></button>
+                        </div>
+                    
                     </div>
-                    
+                </div>  
+                <div v-else class="notSelected">
+                    <h3 class="align-self-center">Seleziona una chat</h3>
                 </div>
-                    
-                <div class="notSelected" v-else="">
-                    <h3>Seleziona una chat</h3>
-                </div>
-                
-            
-            
-
-
-                <!--body dx-->
-                
-            </div>
-            </div>
-        </div>
-    </div>
+            </div>   
+        </div>   
+    </div>        
 </div>
+
+              
+ 
+    
+
     <script src="script.js"></script>
 </body>
 </html>
