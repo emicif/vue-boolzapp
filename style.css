@@ -43,6 +43,19 @@
   border: 1px solid green;
 }
 
+.input input {
+  margin: 5px auto;
+  width: 85%;
+  height: 40px;
+}
+.input button {
+  height: 40px;
+  width: 10%;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
 .contact {
   width: 50vh;
   height: 705px;
@@ -51,8 +64,9 @@
 
 .list {
   list-style-type: none;
-  padding: 20px;
+  padding: 16px;
   border: 1px solid grey;
+  cursor: pointer;
 }
 
 .bg-image {
@@ -64,6 +78,7 @@
   height: 50px;
   line-height: 60px;
   vertical-align: middle;
+  border-radius: 50%;
 }
 
 .notifiche {
@@ -76,5 +91,13 @@
   font-size: 35px;
   margin: 16px;
   padding: 13px;
+  border-radius: 50%;
+}
+
+.list img {
+  margin: 5px;
+  height: 50px;
+  line-height: 60px;
+  vertical-align: middle;
   border-radius: 50%;
 }

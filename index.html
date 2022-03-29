@@ -17,7 +17,7 @@
         <div class="flex-column">
             <div class="account">
                 <img src="img-bolzapp/avatar_io.jpg" alt="" >
-                Emanuela
+                <strong>Emanuela</strong>
             </div>
             <div class="notifiche flex-sx">
                 <i class="fa-solid fa-bell-slash"></i>
@@ -25,16 +25,18 @@
                 <a href="#">Attiva notifiche desktop</a>
             </div>
             <div class="input">
-                <input type="text">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+
+                <input type="text" placeholder= "Cerca o inizia una nuova chat" >
             </div>
             <div class="contact ">
                 <ul>
                     <li class="list" v-for="(items, index) in contacts"> 
                         <div>
-                            {{items.avatar}}
-                            {{items.name}}
+                            <img :src="'img-bolzapp/avatar' + items.avatar + '.jpg'" alt="">
+                            <strong>{{items.name}}</strong>
+                            <span>Ultimo messaggio inviato</span>
                             
-                            <p>Ultimo messaggio inviato</p>
                             <p>12.00</p>
                         </div>
                             
