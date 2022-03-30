@@ -172,21 +172,46 @@ const app = new Vue (
         data: { 
             contacts,
             activeContact: null,
+            newMessage: '',
         },
         methods: {
+            // indici del contact selezionato
             setActive: function(i){
                 this.activeContact = i;
+                //return 'bg-lightgrey';
             },
             colorMessage: function(i){
-                if(this.contacts[this.activeContact].messages[1].status === 'sent') {
+                if(this.contacts[this.activeContact].messages[i].status === 'sent') {
                     return 'bg-green';
                 } else {
                     return 'bg-white';
                 }
-            }
+               
+            },
+           
+            // aggiungere nuovo messaggio nell'array
+            pushNewMessage(){
+                const newText = this.newMessage.trim();
 
+                if(newText.length > 0) {
+                    this.contacts[i].messages.push(
+                            {
+                                date: '10/01/2022 15:51:02',
+                                message: newText,
+                                status: 'sent'
+                            }
+                        );
+                    this.newMessage = '';
+                }
+                console.log('nuovo messaggio', + this.contacts)
+            },
+            
         }
+        
     }
 );
 
-console.log(contacts);
+console.log(contacts[0].messages);
+
+
+

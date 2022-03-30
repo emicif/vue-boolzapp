@@ -8,24 +8,28 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-.max-container {
-  background-color: #009688;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 5px auto;
-  height: 98vh;
-  background-color: white;
-  display: flex;
-}
-
+/* utilities */
 .flex {
   display: flex;
 }
 
 .flex-column {
   flex-direction: column;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.max-container {
+  background-color: #009688;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100vh;
+  background-color: white;
 }
 
 .account {
@@ -43,19 +47,20 @@ body {
   color: #535353;
 }
 
-.input-top {
+.search-chat {
   width: 50vh;
   height: 50px;
-  background-color: #eaeaea;
+  padding-left: 10px;
+  border: 1px solid rgb(216, 216, 216);
 }
 
-.input-top input {
+.search-chat input {
   margin: 5px auto;
   width: 85%;
   height: 40px;
   border: none;
 }
-.input-top button {
+.search-chat button {
   height: 40px;
   width: 10%;
   border: none;
@@ -65,13 +70,14 @@ body {
 
 .contact {
   width: 50vh;
-  height: 705px;
+  height: 727px;
+  border: 1px solid rgb(216, 216, 216);
 }
 
 .list {
   list-style-type: none;
   padding: 5px;
-  border-bottom: 1px solid grey;
+  border: 1px solid rgb(216, 216, 216);
   cursor: pointer;
 }
 
@@ -83,11 +89,15 @@ body {
   color: grey;
 }
 
+.container-dx {
+  border: 1px solid rgb(216, 216, 216);
+}
+
 .bg-image {
   background-image: url(img-bolzapp/mine.jpg);
 }
 
-.account img {
+.avatar {
   margin: 5px;
   height: 50px;
   line-height: 60px;
@@ -119,27 +129,11 @@ body {
   border-radius: 50%;
 }
 
-.list img {
-  margin: 5px;
-  height: 50px;
-  line-height: 60px;
-  vertical-align: middle;
-  border-radius: 50%;
-}
-
 .header {
   height: 60px;
   width: 100%;
   background-color: #eaeaea;
   display: flex;
-}
-
-.header img {
-  margin: 5px;
-  height: 50px;
-  line-height: 60px;
-  vertical-align: middle;
-  border-radius: 50%;
 }
 
 .header .icon-dx i {
@@ -154,6 +148,7 @@ body {
 }
 
 .notSelected {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -163,15 +158,16 @@ body {
 
 .body-dx {
   width: 100%;
-  height: 780px;
+  height: 806px;
   display: flex;
+  /* flex-grow: 1; */
   flex-direction: column;
 }
 
 .footer-dx {
   height: 70px;
   width: 100%;
-  background-color: #eaeaea;
+  background-color: #f3eeea;
   display: flex;
 }
 
@@ -191,7 +187,7 @@ body {
   width: 10%;
   border: none;
   cursor: pointer;
-  background-color: #eaeaea;
+  background-color: #f3eeea;
 }
 
 .footer-dx button {
@@ -200,17 +196,20 @@ body {
 
 .bg-green {
   background-color: #d5f9ba;
-  width: 300px;
-  padding: 18px;
-  border-radius: 15%;
+  min-width: 200px;
+  padding: 5px 10px;
+  margin: 30px;
+  border-radius: 10%;
   align-self: flex-end;
 }
 
 .bg-white {
   background-color: white;
-  width: 300px;
-  padding: 18px;
-  border-radius: 15%;
+  min-width: 200px;
+  padding: 5px 10px;
+  margin: 30px;
+  border-radius: 10%;
+  align-self: flex-start;
 }
 
 .bg-lightgrey {
