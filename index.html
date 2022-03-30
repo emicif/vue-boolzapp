@@ -90,7 +90,10 @@
                     <div class="body-dx">
                         <div class="flex" v-for="(items, index) in contacts[activeContact].messages"> 
                             <p :class="colorMessage(index)">{{contacts[activeContact].messages[index].message}}</p>
-                        </div> 
+                        </div>
+                        <p class="bg-white" v-if="show">ok!</p>
+                        
+                        
                     </div>
 
                     <!--footer dx-->
@@ -104,7 +107,9 @@
                             placeholder= "Scrivi un messaggio" 
                             @keyUp.enter="pushNewMessage(activeContact)">
                             <button class="col-2"><i class="fa-solid fa-microphone"></i></button>
+                            
                         </div>
+                        
                     </div>
                 </div> 
 

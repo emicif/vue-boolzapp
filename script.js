@@ -173,6 +173,7 @@ const app = new Vue (
             contacts,
             activeContact: null,
             newMessage: '',
+            show: false,
         },
         methods: {
             // indici del contact selezionato
@@ -205,6 +206,9 @@ const app = new Vue (
                         );
                         this.newMessage = '';
                 }
+                setTimeout(() => {
+                   this.show = true;
+               }, 1000);
             },
         }
     }
