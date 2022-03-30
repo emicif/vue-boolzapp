@@ -191,19 +191,24 @@ const app = new Vue (
            
             // aggiungere nuovo messaggio nell'array
             pushNewMessage(){
-                const newText = this.newMessage.trim();
+                //const newText = this.newMessage.trim();
+             
+                // accedo all'iesimo messages
+                //console.log('array è' + this.contacts[this.activeContact].messages[i]);
 
-                if(newText.length > 0) {
-                    this.contacts[i].messages.push(
+                
+                if(this.newMessage.length > 0) {
+                    this.contacts.messages.push(
                             {
-                                date: '10/01/2022 15:51:02',
-                                message: newText,
+                                date: '15/01/2022 15:51:02',
+                                message: this.newMessage,
                                 status: 'sent'
                             }
                         );
-                    this.newMessage = '';
+                        this.newMessage = '';
                 }
-                console.log('nuovo messaggio', + this.contacts)
+               console.log('nuovo messaggio', + this.newMessage)
+               
             },
             
         }
@@ -211,7 +216,7 @@ const app = new Vue (
     }
 );
 
-console.log(contacts[0].messages);
+
 
 
 
