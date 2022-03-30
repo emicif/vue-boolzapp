@@ -100,8 +100,9 @@
                             <input 
                             class="col-8" 
                             type="text" 
+                            v-model="newMessage" 
                             placeholder= "Scrivi un messaggio" 
-                            @keyUp.enter="pushNewMessage()">
+                            @keyUp.enter="pushNewMessage(0)">
                             <button class="col-2"><i class="fa-solid fa-microphone"></i></button>
                         </div>
                     </div>
