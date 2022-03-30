@@ -195,8 +195,6 @@ const app = new Vue (
              
                 // accedo all'iesimo messages
                 //console.log('array è' + this.contacts[this.activeContact].messages[i]);
-
-                console.log('nuovo messaggio', + this.newMessage)
                 if(newText.length > 0) {
                     this.contacts[i].messages.push(
                             {
@@ -207,7 +205,6 @@ const app = new Vue (
                         );
                         this.newMessage = '';
                 }
-               console.log('nuovo messaggio', + newText)
             },
         }
     }
