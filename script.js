@@ -243,15 +243,15 @@ const app = new Vue (
 
             infoMessage(i){
                const message = this.contacts[this.activeContact].messages[i].message;
-                console.log(message);
+                console.log('info', message);
                 this.info = !this.info;  
 
             },
 
             deleteMessage(i){
-                const messageDelete = this.contacts[this.activeContact].messages[i].message;
-                console.log('messaggio eliminato', messageDelete);
-                //this.contacts[this.activeContact].messages[i].remove(message)
+                const deleteMessage = this.contacts[this.activeContact].messages[i].message;
+                console.log('deleteMessage', deleteMessage);
+               // this.contacts[this.activeContact].messages[i].remove(this.message);
             }
             },
              // ricerca searchbar 

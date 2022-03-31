@@ -53,7 +53,7 @@
                             v-for="(items, index) in filteredList" 
                             @click= "setActive(index)"
                             class="list"> 
-                                <div class="flex"    > <!--funziona la search ma duplica tutto v-for="contact in filteredList"-->
+                                <div class="flex"> 
                                     <img 
                                     class="col-1 avatar" 
                                     :src="'img-bolzapp/avatar' + items.avatar + '.jpg'" 
@@ -68,7 +68,7 @@
                                         </div>
                                     </div>
 
-
+                                   
                 <!-- problemi refresh -->
                                     <div class="col-1 message">
                                         <div v-if="filteredList[index].messages[2]">
@@ -103,26 +103,26 @@
                     <!--body dx-->
                     <div class="body-dx flex">
                         <div 
-                        class="flex singol-message" 
-                        v-for="(items, index) in filteredList[activeContact].messages" 
-                        :class="colorMessage(index)">
-                        {{filteredList[activeContact].messages[index].message}}  
-                        <i @click="infoMessage(index)"
-                        class="fa-solid fa-angle-down">
-                        </i>
+                            class="flex singol-message" 
+                            v-for="(items, index) in filteredList[activeContact].messages" 
+                            :class="colorMessage(index)">
+                            {{filteredList[activeContact].messages[index].message}}  
+                            <i @click="infoMessage(index)"
+                            class="fa-solid fa-angle-down">
+                            </i>
 
-                        </div>
-                        <div 
-                        v-show="info"
-                        class="info-delete">
-                            <p>Message info <i class="fa-solid fa-angle-down"></i></p>
-                            <p
-                            @click="deleteMessage(index)">
-                            Delete messagge
-                            <i class="fa-solid fa-angle-down"></i>
-                            </p>
-                        </div>
+                            <div 
+                            v-show="info"
+                            class="info-delete"
 
+                                @click="deleteMessage(index)">
+                                Delete message
+                                <i class="fa-solid fa-angle-down"></i>
+                                
+                            </div>
+                        </div>
+                        
+                         <!-- <p>Message info <i class="fa-solid fa-angle-down"></i></p> -->
                                 
                     </div>
                     
