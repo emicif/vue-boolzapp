@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/681/original/Pittogramma-RGB-1080-BLUE-circle.png"/>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="framework.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -51,7 +52,7 @@
                     <div class="contact" >
                             <div 
                             v-for="(items, index) in filteredList" 
-                            @click= "setActive(index)"
+                            @click= "setActive(index)"  
                             class="list"> 
                                 <div class="flex"> 
                                     <img 
@@ -62,28 +63,31 @@
                                         <strong>{{items.name}}</strong>
                                         <div v-if="filteredList[index].messages[2]">
                                             <p class="message">{{filteredList[index].messages[2].message}}</p>
+                                            
                                         </div>
                                         <div v-else="filteredList[index].messages[1]">
                                             <p class="message">{{filteredList[index].messages[1].message}}</p>
+                                           
                                         </div>
                                     </div>
 
                                    
                 <!-- problemi refresh -->
-                                    <div class="col-1 message">
+                                    <!-- <div class="col-1 message">
                                         <div v-if="filteredList[index].messages[2]">
                                             <p>{{filteredList[index].messages[2].date}}</p>
                                         </div>
                                         <div v-else="filteredList[index].messages[1]">
                                             <p>{{filteredList[index].messages[1].date}}</p>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                     </div>
                 </div>
             </div>
-            <!-- chat -->
+
+            <!-- chat lato DX-->
             <div class="flex col-8 bg-image container-dx" >
                 <div class="flex-column w-100" v-if="activeContact !== null">
                     <!--header dx-->
@@ -92,7 +96,7 @@
                         <div class="col-8 align-self-center">
                             <h3>{{filteredList[activeContact].name}} </h3>
                            <!-- <p>Ultimo accesso oggi alle {{hour(activeContact)}}</p> -->
-                            <!-- <p>{{contacts[activeContact].messages[0].date}}</p> -->
+                            <p>Ultimo accesso {{contacts[activeContact].messages[0].date}}</p>
                         </div>
                         <div class="col-3 icon-dx">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -100,30 +104,30 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
+
                     <!--body dx-->
                     <div class="body-dx flex">
                         <div 
                             class="flex singol-message" 
                             v-for="(items, index) in filteredList[activeContact].messages" 
+                            @click="infoMessage(index)"
                             :class="colorMessage(index)">
-                            {{filteredList[activeContact].messages[index].message}}  
-                            <i @click="infoMessage(index)"
-                            class="fa-solid fa-angle-down">
-                            </i>
+                            {{filteredList[activeContact].messages[index].message}}
+                              
+                            <i class="fa-solid fa-angle-down p-10"></i>
 
+                            
                             <div 
                             v-show="info"
-                            class="info-delete"
-
-                                @click="deleteMessage(index)">
+                            class="info-delete">
+                            <p>Message info <i class="fa-solid fa-angle-down p-10"></i></p>
+                            <p
+                                @click="deleteMessage()">
                                 Delete message
-                                <i class="fa-solid fa-angle-down"></i>
-                                
+                                <i class="fa-solid fa-angle-down p-10"></i>
+                            </p> 
                             </div>
-                        </div>
-                        
-                         <!-- <p>Message info <i class="fa-solid fa-angle-down"></i></p> -->
-                                
+                        </div>     
                     </div>
                     
 

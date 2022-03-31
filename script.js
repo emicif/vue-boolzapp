@@ -176,10 +176,11 @@ const app = new Vue (
             show: false,
             search: '',
             info: false,
-            replyMessage: 'OK',
+            delete: '',
             
         },
         methods: {
+
             // indici del contact selezionato
             setActive: function(i){
                 this.activeContact = i;
@@ -191,12 +192,11 @@ const app = new Vue (
                 } else {
                     return 'received';
                 }
-               
             },
 
 
 /*
-            bgGrey: function(colorMessage){
+            bgGrey: function(i){
                 if(colorMessage){
                     return 'bg-lightgrey';
                 }
@@ -209,31 +209,33 @@ const app = new Vue (
                 const dataMessage = this.contacts[i].messages[i].date;
                 const fullHour = dataMessage.split(' ')[1];
                 const temporary = fullHour.split(':');
+                console.log(temporary)
                 return temporary[0]+':'+temporary[1];
             },  
+            
            
-            // aggiungere nuovo messaggio nell'array
+            // funzione per aggiungere nuovo messaggio
             pushNewMessage(i){
                 const newText = this.newMessage.trim();
              
-                // accedo all'iesimo messages
-                //console.log('array è' + this.contacts[this.activeContact].messages[i]);
+               
                 if(newText.length > 0) {
                     this.contacts[i].messages.push(
                             {
-                                date: '15/01/2022 15:51:02',
+                                date: new Date(),
                                 message: newText,
                                 status: 'sent'
                             }
+                            
                         );
-                        this.newMessage = '';   
+                        this.newMessage = '';        
                 }
-               
+               // setTimeout
                 setTimeout(() => {
                     this.contacts[i].messages.push(
                         {
                             date: '15/01/2022 15:51:02',
-                            message: 'ok',
+                            message: 'Ok!',
                             status: 'received'
                         }
                     );
@@ -241,24 +243,38 @@ const app = new Vue (
                 }, 1000);
             },
 
+
+            // funzione per aprire tendina messaggi
             infoMessage(i){
-               const message = this.contacts[this.activeContact].messages[i].message;
-                console.log('info', message);
+               
                 this.info = !this.info;  
+                this.delete = this.contacts[this.activeContact].messages[i].message;
+                console.log('info', this.delete);
 
             },
 
-            deleteMessage(i){
-                const deleteMessage = this.contacts[this.activeContact].messages[i].message;
-                console.log('deleteMessage', deleteMessage);
-               // this.contacts[this.activeContact].messages[i].remove(this.message);
+            // funzione per eliminare il messaggio
+            deleteMessage(){
+                console.log('delete', this.delete);
+                //const deleteMessage = this.contacts[this.activeContact].messages[i].message;
+                //console.log('deleteMessage', deleteMessage);
+               // deleteMessage.remove(this.message);
+              // const removed = this.contacts.splice(this.delete); elimina intero array
+            
+            //contacts.slice([contacts], [this.delete], 1)
+            //contacts.slice([this.delete], 1) 
+            
+          
+            contacts.splice([this.delete], 1) 
+            console.log('delete',  this.delete);
+            console.log('array', contacts);
+           
             }
             },
              // ricerca searchbar 
             computed: {
                 filteredList() {
                     this.activeContact = null;
-                   // console.log('search', this.search);
                     return this.contacts.filter(contact => {
                     return contact.name.toLowerCase().includes(this.search.toLowerCase())
                     })
