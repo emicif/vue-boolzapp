@@ -17,7 +17,7 @@
         <div class="container flex">
             <!-- user info e contacts -->
             <div class="flex col-4">
-                <div class="flex-column">
+                <div class="flex-column" >
                     <!-- header sx -->
                     <div class="account flex justify-content-between">
                         <div class="col-9">
@@ -38,43 +38,44 @@
                             <a href="#"><strong>Attiva notifiche desktop</strong></a>
                         </div>
                     </div>
-                    <div class="search-chat">
+                    <div class="search-chat" >
                         <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                        <input 
+                        <input  
+                        
                         type="text" 
-                        v-model="searchBar"
-                        @keyUp ="search()"
+                        v-model="search"
+                        
                         placeholder= "Cerca o inizia una nuova chat" >
                     </div>
                     <!-- body user e contact -->
-                    <div class="contact">
+                    <div class="contact" >
                             <div 
-                            v-for="(items, index) in contacts" 
-                            @click= "setActive(index)" 
-                            class="list" > 
-                                <div class="flex" >
+                            v-for="(items, index) in filteredList" 
+                            @click= "setActive(index)"
+                            class="list"> 
+                                <div class="flex"    > <!--funziona la search ma duplica tutto v-for="contact in filteredList"-->
                                     <img 
                                     class="col-1 avatar" 
                                     :src="'img-bolzapp/avatar' + items.avatar + '.jpg'" 
-                                    alt="contacts[activeContact].name">
+                                    alt="filteredList[activeContact].name">
                                     <div class="col-10 name-message">
                                         <strong>{{items.name}}</strong>
-                                        <div v-if="contacts[index].messages[2]">
-                                            <p class="message">{{contacts[index].messages[2].message}}</p>
+                                        <div v-if="filteredList[index].messages[2]">
+                                            <p class="message">{{filteredList[index].messages[2].message}}</p>
                                         </div>
-                                        <div v-else="contacts[index].messages[1]">
-                                            <p class="message">{{contacts[index].messages[1].message}}</p>
+                                        <div v-else="filteredList[index].messages[1]">
+                                            <p class="message">{{filteredList[index].messages[1].message}}</p>
                                         </div>
                                     </div>
 
 
                 <!-- problemi refresh -->
                                     <div class="col-1 message">
-                                        <div v-if="contacts[index].messages[2]">
-                                            <p>{{contacts[index].messages[2].date}}</p>
+                                        <div v-if="filteredList[index].messages[2]">
+                                            <p>{{filteredList[index].messages[2].date}}</p>
                                         </div>
-                                        <div v-else="contacts[index].messages[1]">
-                                            <p>{{contacts[index].messages[1].date}}</p>
+                                        <div v-else="filteredList[index].messages[1]">
+                                            <p>{{filteredList[index].messages[1].date}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -87,9 +88,9 @@
                 <div class="flex-column w-100" v-if="activeContact !== null">
                     <!--header dx-->
                     <div class="header">
-                        <img class="col-1 avatar" :src="'img-bolzapp/avatar' + contacts[activeContact].avatar + '.jpg'" alt="contacts[activeContact].name">
+                        <img class="col-1 avatar" :src="'img-bolzapp/avatar' + filteredList[activeContact].avatar + '.jpg'" alt="filteredList[activeContact].name">
                         <div class="col-8 align-self-center">
-                            <h3>{{contacts[activeContact].name}} </h3>
+                            <h3>{{filteredList[activeContact].name}} </h3>
                            <!-- <p>Ultimo accesso oggi alle {{hour(activeContact)}}</p> -->
                             <!-- <p>{{contacts[activeContact].messages[0].date}}</p> -->
                         </div>
@@ -103,9 +104,9 @@
                     <div class="body-dx flex">
                         <div 
                         class="flex singol-message" 
-                        v-for="(items, index) in contacts[activeContact].messages" 
+                        v-for="(items, index) in filteredList[activeContact].messages" 
                         :class="colorMessage(index)">
-                        {{contacts[activeContact].messages[index].message}}  
+                        {{filteredList[activeContact].messages[index].message}}  
                         </div>
                         <p class="received singol-message " v-if="show">Ok!</p>
                         

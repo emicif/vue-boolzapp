@@ -174,7 +174,7 @@ const app = new Vue (
             activeContact: null,
             newMessage: '',
             show: false,
-            searchBar:'',
+            search: '',
         },
         methods: {
             // indici del contact selezionato
@@ -190,6 +190,18 @@ const app = new Vue (
                 }
                
             },
+
+
+/*
+            bgGrey: function(colorMessage){
+                if(colorMessage){
+                    return 'bg-lightgrey';
+                }
+                   
+
+            },
+*/
+
             hour(i) {
                 const dataMessage = this.contacts[i].messages[i].date;
                 const fullHour = dataMessage.split(' ')[1];
@@ -221,17 +233,27 @@ const app = new Vue (
                 
                 clearTimeout(this.show);
                console.log(this.show)
-                 
-               
             },
 
 
-
-            /*search(){
-                
-            }*/
            
-        } 
+  
+
+            },
+             // ricerca searchbar 
+            computed: {
+                filteredList() {
+                    console.log(this.search);
+                    return this.contacts.filter(contact => {
+                    return contact.name.toLowerCase().includes(this.search.toLowerCase())
+                    })
+                }
+                
+
+            }  
+
+           
+            
     }   
 );
 
