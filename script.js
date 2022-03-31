@@ -253,24 +253,17 @@ const app = new Vue (
                 console.log('messaggio eliminato', messageDelete);
                 //this.contacts[this.activeContact].messages[i].remove(message)
             }
-           
-  
-
             },
              // ricerca searchbar 
             computed: {
                 filteredList() {
-                    console.log(this.search);
+                    this.activeContact = null;
+                   // console.log('search', this.search);
                     return this.contacts.filter(contact => {
                     return contact.name.toLowerCase().includes(this.search.toLowerCase())
                     })
-                }
-                
-
-            }  
-
-           
-            
+                }     
+            }            
     }   
 );
 
