@@ -176,6 +176,8 @@ const app = new Vue (
             show: false,
             search: '',
             info: false,
+            replyMessage: 'OK',
+            
         },
         methods: {
             // indici del contact selezionato
@@ -224,16 +226,19 @@ const app = new Vue (
                                 status: 'sent'
                             }
                         );
-                        this.newMessage = '';
-                                 
-                        
+                        this.newMessage = '';   
                 }
+               
                 setTimeout(() => {
-                    this.show = true;  
+                    this.contacts[i].messages.push(
+                        {
+                            date: '15/01/2022 15:51:02',
+                            message: 'ok',
+                            status: 'received'
+                        }
+                    );
+                    
                 }, 1000);
-                
-                clearTimeout(this.show);
-               console.log(this.show)
             },
 
             infoMessage(i){

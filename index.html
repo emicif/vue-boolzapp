@@ -112,16 +112,19 @@
                         </i>
 
                         </div>
-                        <p class="received singol-message " v-if="show">Ok!</p>
-                                <div v-show="info"
-                                class="info-delete">
-                                    <p>Message info <i class="fa-solid fa-angle-down"></i></p>
-                                    <p
-                                    @click="deleteMessage(index)">
-                                    Delete messagge
-                                    <i class="fa-solid fa-angle-down"></i>
-                                    </p>
-                                </div>
+                        <div 
+                        v-show="info"
+                        class="info-delete">
+                            <p>Message info <i class="fa-solid fa-angle-down"></i></p>
+                            <p
+                            @click="deleteMessage(index)">
+                            Delete messagge
+                            <i class="fa-solid fa-angle-down"></i>
+                            </p>
+                        </div>
+
+                        <!-- <p class="received singol-message " v-if="replyMessage">{{replyMessage}}</p> -->
+                                
                     </div>
                     
 
