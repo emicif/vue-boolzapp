@@ -174,6 +174,7 @@ const app = new Vue (
             activeContact: null,
             newMessage: '',
             show: false,
+            searchBar:'',
         },
         methods: {
             // indici del contact selezionato
@@ -183,12 +184,18 @@ const app = new Vue (
             },
             colorMessage: function(i){
                 if(this.contacts[this.activeContact].messages[i].status === 'sent') {
-                    return 'bg-green';
+                    return 'sent';
                 } else {
-                    return 'bg-white';
+                    return 'received';
                 }
                
             },
+            hour(i) {
+                const dataMessage = this.contacts[i].messages[i].date;
+                const fullHour = dataMessage.split(' ')[1];
+                const temporary = fullHour.split(':');
+                return temporary[0]+':'+temporary[1];
+            },  
            
             // aggiungere nuovo messaggio nell'array
             pushNewMessage(i){
@@ -205,16 +212,27 @@ const app = new Vue (
                             }
                         );
                         this.newMessage = '';
+                                 
+                        
                 }
                 setTimeout(() => {
-                   this.show = true;
-               }, 1000);
+                    this.show = true;  
+                }, 1000);
+                
+                clearTimeout(this.show);
+               console.log(this.show)
+                 
+               
             },
-        }
-    }
+
+
+
+            /*search(){
+                
+            }*/
+           
+        } 
+    }   
 );
-
-
-
 
 

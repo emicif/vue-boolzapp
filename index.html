@@ -40,13 +40,23 @@
                     </div>
                     <div class="search-chat">
                         <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                        <input type="text" placeholder= "Cerca o inizia una nuova chat" >
+                        <input 
+                        type="text" 
+                        v-model="searchBar"
+                        @keyUp ="search()"
+                        placeholder= "Cerca o inizia una nuova chat" >
                     </div>
                     <!-- body user e contact -->
                     <div class="contact">
-                            <div class="list" v-for="(items, index) in contacts" @click= "setActive(index)"> 
+                            <div 
+                            v-for="(items, index) in contacts" 
+                            @click= "setActive(index)" 
+                            class="list" > 
                                 <div class="flex" >
-                                    <img class="col-1 avatar" :src="'img-bolzapp/avatar' + items.avatar + '.jpg'" alt="contacts[activeContact].name">
+                                    <img 
+                                    class="col-1 avatar" 
+                                    :src="'img-bolzapp/avatar' + items.avatar + '.jpg'" 
+                                    alt="contacts[activeContact].name">
                                     <div class="col-10 name-message">
                                         <strong>{{items.name}}</strong>
                                         <div v-if="contacts[index].messages[2]">
@@ -57,6 +67,8 @@
                                         </div>
                                     </div>
 
+
+                <!-- problemi refresh -->
                                     <div class="col-1 message">
                                         <div v-if="contacts[index].messages[2]">
                                             <p>{{contacts[index].messages[2].date}}</p>
@@ -78,7 +90,8 @@
                         <img class="col-1 avatar" :src="'img-bolzapp/avatar' + contacts[activeContact].avatar + '.jpg'" alt="contacts[activeContact].name">
                         <div class="col-8 align-self-center">
                             <h3>{{contacts[activeContact].name}} </h3>
-                            <p>{{contacts[activeContact].messages[0].date}}</p>
+                           <!-- <p>Ultimo accesso oggi alle {{hour(activeContact)}}</p> -->
+                            <!-- <p>{{contacts[activeContact].messages[0].date}}</p> -->
                         </div>
                         <div class="col-3 icon-dx">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -87,11 +100,14 @@
                         </div>
                     </div>
                     <!--body dx-->
-                    <div class="body-dx">
-                        <div class="flex" v-for="(items, index) in contacts[activeContact].messages"> 
-                            <p :class="colorMessage(index)">{{contacts[activeContact].messages[index].message}}</p>
+                    <div class="body-dx flex">
+                        <div 
+                        class="flex singol-message" 
+                        v-for="(items, index) in contacts[activeContact].messages" 
+                        :class="colorMessage(index)">
+                        {{contacts[activeContact].messages[index].message}}  
                         </div>
-                        <p class="bg-white" v-if="show">ok!</p>
+                        <p class="received singol-message " v-if="show">Ok!</p>
                         
                         
                     </div>
@@ -107,7 +123,6 @@
                             placeholder= "Scrivi un messaggio" 
                             @keyUp.enter="pushNewMessage(activeContact)">
                             <button class="col-2"><i class="fa-solid fa-microphone"></i></button>
-                            
                         </div>
                         
                     </div>

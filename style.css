@@ -159,7 +159,6 @@ body {
 .body-dx {
   width: 100%;
   height: 806px;
-  display: flex;
   /* flex-grow: 1; */
   flex-direction: column;
 }
@@ -194,24 +193,32 @@ body {
   color: #b1b1b1;
 }
 
-.bg-green {
-  background-color: #d5f9ba;
+.singol-message {
   min-width: 200px;
   padding: 5px 10px;
   margin: 30px;
   border-radius: 10%;
+}
+
+.sent {
+  background-color: #d5f9ba;
+
   align-self: flex-end;
 }
 
-.bg-white {
+.received {
   background-color: white;
-  min-width: 200px;
-  padding: 5px 10px;
-  margin: 30px;
-  border-radius: 10%;
   align-self: flex-start;
 }
 
 .bg-lightgrey {
   background-color: #eaeaea;
+}
+
+.align-self {
+  align-self: flex-end;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
 }
