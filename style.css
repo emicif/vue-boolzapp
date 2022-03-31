@@ -198,6 +198,7 @@ body {
   padding: 5px 10px;
   margin: 30px;
   border-radius: 10%;
+  position: relative;
 }
 
 .sent {
@@ -221,4 +222,17 @@ body {
 
 .justify-content-end {
   justify-content: flex-end;
+}
+
+.info-delete {
+  width: 200px;
+  line-height: 50px;
+  background-color: white;
+  padding: 5px 10px;
+  margin: 30px;
+  border-radius: 10%;
+  align-self: flex-end;
+  position: absolute;
+  top: 50px;
+  left: 50px;
 }

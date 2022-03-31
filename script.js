@@ -175,6 +175,7 @@ const app = new Vue (
             newMessage: '',
             show: false,
             search: '',
+            info: false,
         },
         methods: {
             // indici del contact selezionato
@@ -235,7 +236,18 @@ const app = new Vue (
                console.log(this.show)
             },
 
+            infoMessage(i){
+               const message = this.contacts[this.activeContact].messages[i].message;
+                console.log(message);
+                this.info = !this.info;  
 
+            },
+
+            deleteMessage(i){
+                const messageDelete = this.contacts[this.activeContact].messages[i].message;
+                console.log('messaggio eliminato', messageDelete);
+                //this.contacts[this.activeContact].messages[i].remove(message)
+            }
            
   
 
