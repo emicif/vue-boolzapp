@@ -255,24 +255,17 @@ const app = new Vue (
             },
 
             // funzione per eliminare il messaggio
-            /*
-            deleteMessage(){
+            
+            deleteMessage(items, i){
                 console.log('delete', this.delete);
-                //const deleteMessage = this.contacts[this.activeContact].messages[i].message;
-                //console.log('deleteMessage', deleteMessage);
-               // deleteMessage.remove(this.message);
-              // const removed = this.contacts.splice(this.delete); elimina intero array
             
-            //contacts.slice([contacts], [this.delete], 1)
-            //contacts.slice([this.delete], 1) 
-            
-          
-            contacts.splice([this.delete], 1) 
+                this.contacts[this.activeContact].messages.splice(i, 1);
+           
             console.log('delete',  this.delete);
             console.log('array', contacts);
             }
-            */
-           
+            
+
             },
              // ricerca searchbar 
             computed: {

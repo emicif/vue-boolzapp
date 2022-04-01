@@ -61,26 +61,16 @@
                                     alt="filteredList[activeContact].name">
                                     <div class="col-10 name-message">
                                         <strong>{{items.name}}</strong>
-                                        <div v-if="filteredList[index].messages[2]">
-                                            <p class="message">{{filteredList[index].messages[2].message}}</p>
+                                        <div v-if="filteredList[index].messages.length>0">
+                                            <p class="message">{{filteredList[index].messages[filteredList[index].messages.length-1].message}}</p>
                                             
                                         </div>
-                                        <div v-else="filteredList[index].messages[1]">
-                                            <p class="message">{{filteredList[index].messages[1].message}}</p>
-                                           
+                                        <div v-if="filteredList[index].messages.length>0">
+                                            <p class="message">{{filteredList[index].messages[filteredList[index].messages.length-1].date}}</p>
+                                            
                                         </div>
                                     </div>
-
-                                   
-                <!-- problemi refresh -->
-                                    <!-- <div class="col-1 message">
-                                        <div v-if="filteredList[index].messages[2]">
-                                            <p>{{filteredList[index].messages[2].date}}</p>
-                                        </div>
-                                        <div v-else="filteredList[index].messages[1]">
-                                            <p>{{filteredList[index].messages[1].date}}</p>
-                                        </div>
-                                    </div> -->
+                                    
                                 </div>
                             </div>
                     </div>
@@ -116,17 +106,17 @@
                             <i class="fa-solid fa-angle-down p-10"></i>
 
                             
-                            <!-- delete info -->
-                            <!-- <div 
+                            <!-- delete info-->
+                            <div 
                             v-show="info"
                             class="info-delete">
                                 <p>Message info <i class="fa-solid fa-angle-down p-10"></i></p>
                                 <p
-                                @click="deleteMessage()">
+                                @click="deleteMessage(items, index)">
                                 Delete message
                                 <i class="fa-solid fa-angle-down p-10"></i>
                                 </p> 
-                            </div> -->
+                            </div>
                         </div>     
                     </div>
                     
