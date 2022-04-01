@@ -247,13 +247,15 @@ const app = new Vue (
             // funzione per aprire tendina messaggi
             infoMessage(i){
                
-                this.info = !this.info;  
+                  
                 this.delete = this.contacts[this.activeContact].messages[i].message;
                 console.log('info', this.delete);
+                this.info = !this.info;
 
             },
 
             // funzione per eliminare il messaggio
+            /*
             deleteMessage(){
                 console.log('delete', this.delete);
                 //const deleteMessage = this.contacts[this.activeContact].messages[i].message;
@@ -268,8 +270,9 @@ const app = new Vue (
             contacts.splice([this.delete], 1) 
             console.log('delete',  this.delete);
             console.log('array', contacts);
-           
             }
+            */
+           
             },
              // ricerca searchbar 
             computed: {

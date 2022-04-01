@@ -230,6 +230,7 @@ body {
   justify-content: flex-end;
 }
 
+/*
 .info-delete {
   width: 200px;
   line-height: 50px;
@@ -237,8 +238,9 @@ body {
   padding: 5px 10px;
   margin: 30px;
   border-radius: 10%;
-  cursor: pointer;
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 250px;
+  right: 90px;
+  cursor: pointer;
 }
+*/

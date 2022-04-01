@@ -108,25 +108,25 @@
                     <!--body dx-->
                     <div class="body-dx flex">
                         <div 
-                            class="flex singol-message" 
                             v-for="(items, index) in filteredList[activeContact].messages" 
                             @click="infoMessage(index)"
-                            :class="colorMessage(index)">
+                            :class="colorMessage(index)"
+                            class="flex singol-message" >
                             {{filteredList[activeContact].messages[index].message}}
-                              
                             <i class="fa-solid fa-angle-down p-10"></i>
 
                             
-                            <div 
+                            <!-- delete info -->
+                            <!-- <div 
                             v-show="info"
                             class="info-delete">
-                            <p>Message info <i class="fa-solid fa-angle-down p-10"></i></p>
-                            <p
+                                <p>Message info <i class="fa-solid fa-angle-down p-10"></i></p>
+                                <p
                                 @click="deleteMessage()">
                                 Delete message
                                 <i class="fa-solid fa-angle-down p-10"></i>
-                            </p> 
-                            </div>
+                                </p> 
+                            </div> -->
                         </div>     
                     </div>
                     
